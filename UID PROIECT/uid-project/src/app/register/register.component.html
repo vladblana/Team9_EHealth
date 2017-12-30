@@ -1,40 +1,40 @@
 <div *ngIf="selected === 'Patient'">
   <div class="flex-container">
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <mat-select [(value)]="selected" placeholder="User Type">
         <mat-option *ngFor="let type of userTypes" [value]="type">
           {{ type }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width" >
       <input matInput placeholder="Username" [(ngModel)]="p_username">
       <button mat-button *ngIf="p_username" matSuffix mat-icon-button aria-label="Clear" (click)="p_username=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="First Name" [(ngModel)]="p_firstName">
       <button mat-button *ngIf="p_firstName" matSuffix mat-icon-button aria-label="Clear" (click)="p_firstName=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="Last Name" [(ngModel)]="p_lastName">
       <button mat-button *ngIf="p_lastName" matSuffix mat-icon-button aria-label="Clear" (click)="p_lastName=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="Enter your password" [(ngModel)]="patient_hidepass1"
              [type]="p_hidepass1 ? 'password' : 'text'">
       <mat-icon matSuffix (click)="p_hidepass1 = !p_hidepass1">{{p_hidepass1 ? 'visibility' : 'visibility_off'}}
       </mat-icon>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="Confirm your password" [(ngModel)]="patient_hidepass2"
              [type]="p_hidepass2 ? 'password' : 'text'">
       <mat-icon matSuffix (click)="p_hidepass2 = !p_hidepass2">{{p_hidepass2 ? 'visibility' : 'visibility_off'}}
@@ -42,18 +42,18 @@
     </mat-form-field>
     <p style="color: #b22020" *ngIf="patient_hidepass1 !== patient_hidepass2">{{"Passwords do not match"}}</p>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="Enter your email" [formControl]="p_email" required>
       <mat-error *ngIf="p_email.invalid">{{patientGetErrorMessageForEmail()}}</mat-error>
     </mat-form-field>
 
-    <mat-form-field hintLabel="Max 10 digits">
+    <mat-form-field hintLabel="Max 10 digits" class = "register-element-full-width">
       <input matInput #input maxlength="10" placeholder="Enter phone number" [formControl]="p_nb" required>
       <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
       <mat-error *ngIf="p_nb.invalid">{{patientGetErrorMessageForNumber()}}</mat-error>
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
+    <mat-form-field class = "register-element-full-width">
       <textarea matInput placeholder="Previous Records(if any)"></textarea>
       <mat-hint align="center">Click the end-triangle to adjust the size</mat-hint>
     </mat-form-field>
@@ -64,59 +64,59 @@
 
 <div *ngIf="selected !== 'Patient'">
   <div class="flex-container">
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <mat-select [(value)]="selected" placeholder="User Type">
         <mat-option *ngFor="let type of userTypes" [value]="type">
           {{ type }}
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="Username" [(ngModel)]="username">
       <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="First Name" [(ngModel)]="firstName">
       <button mat-button *ngIf="firstName" matSuffix mat-icon-button aria-label="Clear" (click)="firstName=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="Last Name" [(ngModel)]="lastName">
       <button mat-button *ngIf="lastName" matSuffix mat-icon-button aria-label="Clear" (click)="lastName=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="Enter your password" [(ngModel)]="doctor_hidepass1"
              [type]="hidepass1 ? 'password' : 'text'">
       <mat-icon matSuffix (click)="hidepass1 = !hidepass1">{{hidepass1 ? 'visibility' : 'visibility_off'}}</mat-icon>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="Confirm your password" [(ngModel)]="doctor_hidepass2"
              [type]="hidepass2 ? 'password' : 'text'">
       <mat-icon matSuffix (click)="hidepass2 = !hidepass2">{{hidepass2 ? 'visibility' : 'visibility_off'}}</mat-icon>
     </mat-form-field>
     <p style="color: #b22020" *ngIf="doctor_hidepass1 !== doctor_hidepass2">{{"Passwords do not match"}}</p>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <input matInput placeholder="Enter your email" [formControl]="email" required>
       <mat-error *ngIf="email.invalid">{{getErrorMessageForEmail()}}</mat-error>
     </mat-form-field>
 
-    <mat-form-field hintLabel="Max 10 digits">
+    <mat-form-field hintLabel="Max 10 digits" class = "register-element-full-width">
       <input matInput #input maxlength="10" placeholder="Enter phone number" [formControl]="nb" required>
       <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
       <mat-error *ngIf="nb.invalid">{{getErrorMessageForNumber()}}</mat-error>
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class = "register-element-full-width">
       <mat-select [(value)]="specialisation" placeholder="Select Specialisation">
         <mat-option *ngFor="let specialisation of doctorSp" [value]="specialisation">
           {{ specialisation }}
