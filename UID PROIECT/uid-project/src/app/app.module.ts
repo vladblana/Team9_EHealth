@@ -8,10 +8,13 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDatepickerModule, MatIconModule, MatNativeDateModule} from "@angular/material";
-import { MatFormFieldModule } from '@angular/material';
-import { MatInputModule } from '@angular/material';
+import {MatFormFieldModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatStepperModule} from '@angular/material/stepper';
+import {PatientRegistrationRequestComponent } from './patient-registration-request/patient-registration-request.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material';
 
 
 const appRoutes: Routes = [
@@ -19,6 +22,7 @@ const appRoutes: Routes = [
   {path: 'cacat', component: AppComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'not-found', component: PageNotFoundComponent},
+  {path: 'patient-registration-request',component:PatientRegistrationRequestComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
 
@@ -29,6 +33,7 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     PageNotFoundComponent,
+    PatientRegistrationRequestComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -43,6 +48,9 @@ const appRoutes: Routes = [
     MatIconModule,
     FormsModule,
     ReactiveFormsModule,
+    MatStepperModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

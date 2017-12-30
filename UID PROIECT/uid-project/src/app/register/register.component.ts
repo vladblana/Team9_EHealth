@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   firstName = '';
   lastName = '';
   userTypes = ['Doctor', 'Patient'];
-  doctorSp = ['Nephrology', 'Cardiology', 'Ophthalmology', 'Pedriatics', 'Dermatology'];
+  doctorSp = ['Nephrology', 'Cardiology', 'Ophthalmology', 'Pedriatics', 'Dermatology','Orthopedy','Gynecology','Pneumology'];
   hidepass1 = true;
   hidepass2 = true;
   email = new FormControl('', [Validators.required, Validators.email]);
