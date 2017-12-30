@@ -24,15 +24,15 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDoing(){
+  onDoing() {
     console.log(this.username);
     console.log(this.password);
   }
 
   onLogin() {
-   // this.router.navigate(['/register'], {relativeTo: this.route});
+    this.router.navigate(['/doctor-page'], {relativeTo: this.route});
    // this.onDoing();
-    this.username = 'Damsa';
+
   }
 
   onRegister() {
