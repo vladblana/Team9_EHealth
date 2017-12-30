@@ -1,3 +1,73 @@
-<p>
-  register works!
-</p>
+<mat-form-field>
+  <mat-select [(value)]="selected" placeholder="User Type">
+    <mat-option *ngFor="let type of userTypes" [value]="type">
+      {{ type }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div *ngIf="selected === 'Patient'">
+
+</div>
+
+<div *ngIf="selected !== 'Patient'">
+  <div class="flex-container">
+    <mat-form-field>
+      <input matInput placeholder="Username" [(ngModel)]="username">
+      <button mat-button *ngIf="username" matSuffix mat-icon-button aria-label="Clear" (click)="username=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="First Name" [(ngModel)]="firstName">
+      <button mat-button *ngIf="firstName" matSuffix mat-icon-button aria-label="Clear" (click)="firstName=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Last Name" [(ngModel)]="lastName">
+      <button mat-button *ngIf="lastName" matSuffix mat-icon-button aria-label="Clear" (click)="lastName=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your password" [type]="hidepass1 ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hidepass1 = !hidepass1">{{hidepass1 ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Confirm your password" [type]="hidepass2 ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hidepass2 = !hidepass2">{{hidepass2 ? 'visibility' : 'visibility_off'}}</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessageForEmail()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max 10 digits">
+      <input matInput #input maxlength="10" placeholder="Enter phone number" [formControl]="nb" required>
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+      <mat-error *ngIf="nb.invalid">{{getErrorMessageForNumber()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select [(value)]="specialisation" placeholder="Select Specialisation">
+        <mat-option *ngFor="let specialisation of doctorSp" [value]="specialisation">
+          {{ specialisation }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button type="button" class="btn btn-primary btn-lg" (click)="onRegisterSubmit()">Register</button>
+
+  </div>
+</div>
+
+
+
+
+
