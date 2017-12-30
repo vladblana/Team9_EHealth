@@ -8,14 +8,14 @@ import {MatPaginator, MatTableDataSource} from "@angular/material";
 })
 
 
-export class PatientRegistrationRequestComponent implements OnInit,AfterViewInit {
+export class PatientRegistrationRequestComponent implements OnInit {
 
   doctorSp = ['Nephrology', 'Cardiology', 'Ophthalmology', 'Pedriatics', 'Dermatology', 'Orthopedy', 'Gynecology', 'Pneumology'];
   doctor_spec = '';
-  table_size = ELEMENT_DATA.length;
+
   dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+
 
   constructor() {
   }
@@ -30,14 +30,6 @@ export class PatientRegistrationRequestComponent implements OnInit,AfterViewInit
     this.dataSource.filter = filterValue;
   }
 
-
-  /**
-   * Set the paginator after the view init since this component will
-   * be able to query its view for the initialized paginator.
-   */
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
 
 }
 

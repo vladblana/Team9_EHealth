@@ -5,24 +5,32 @@ import {LoginComponent} from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
 import {RegisterComponent} from './register/register.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatDatepickerModule, MatIconModule, MatNativeDateModule} from "@angular/material";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDatepickerModule, MatIconModule, MatNativeDateModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import {MatStepperModule} from '@angular/material/stepper';
-import {PatientRegistrationRequestComponent } from './patient-registration-request/patient-registration-request.component';
+import {PatientRegistrationRequestComponent} from './patient-registration-request/patient-registration-request.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material';
-
+import {PatientMainpageComponent} from './patient-mainpage/patient-mainpage.component';
+import {DoctorPageComponent} from './doctor-page/doctor-page.component';
+import {MatToolbarModule} from '@angular/material';
+import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
+import { PatientNavbarComponent } from './patient-navbar/patient-navbar.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'cacat', component: AppComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'not-found', component: PageNotFoundComponent},
-  {path: 'patient-registration-request',component:PatientRegistrationRequestComponent},
+  {path: 'doctor-page', component: DoctorPageComponent},
+  {path: 'patient-mainpage', component: PatientMainpageComponent},
+  {path: 'patient-mainpage/:username', component: PatientMainpageComponent},
+  {path: 'view-doctors', component: ViewDoctorsComponent},
+  {path: 'patient-registration-request', component: PatientRegistrationRequestComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
 
@@ -33,7 +41,11 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     PageNotFoundComponent,
+    PatientMainpageComponent,
+    DoctorPageComponent,
     PatientRegistrationRequestComponent,
+    ViewDoctorsComponent,
+    PatientNavbarComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -50,6 +62,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatStepperModule,
     MatTableModule,
+    MatToolbarModule,
     MatPaginatorModule
   ],
   providers: [],

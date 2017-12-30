@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    this.router.navigate(['/doctor-page'], {relativeTo: this.route});
+   // this.router.navigate(['/patient-mainpage'], {relativeTo: this.route});
+    this.router.navigate(['/patient-mainpage/' + this.username], {relativeTo: this.route});
    // this.onDoing();
 
   }
