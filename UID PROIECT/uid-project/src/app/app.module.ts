@@ -20,6 +20,9 @@ import {DoctorPageComponent} from './doctor-page/doctor-page.component';
 import {MatToolbarModule} from '@angular/material';
 import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
 import { PatientNavbarComponent } from './patient-navbar/patient-navbar.component';
+import {DoctorService} from './service/DoctorService';
+import {Doctor} from './model/Doctor';
+import {Patient} from './model/Patient';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -65,7 +68,7 @@ const appRoutes: Routes = [
     MatToolbarModule,
     MatPaginatorModule
   ],
-  providers: [],
+  providers: [DoctorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

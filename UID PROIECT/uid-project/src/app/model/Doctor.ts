@@ -1,4 +1,5 @@
 import {Patient} from './Patient';
+import {Injectable, Optional} from '@angular/core';
 
 // A doctor has multiple patients
 export class Doctor {

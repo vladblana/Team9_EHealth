@@ -9,10 +9,10 @@ export class Patient {
   private _email: string;
   private _phoneNumber: string;
   private _previousMedicalRecord: string;
-  private _doctor: Doctor;
 
 
-  constructor(username: string, password: string, firstName: string, lastName: string, email: string, phoneNumber: string, previousMedicalRecord: string, doctor: Doctor) {
+
+  constructor(username: string, password: string, firstName: string, lastName: string, email: string, phoneNumber: string, previousMedicalRecord: string) {
     this._username = username;
     this._password = password;
     this._firstName = firstName;
@@ -20,7 +20,6 @@ export class Patient {
     this._email = email;
     this._phoneNumber = phoneNumber;
     this._previousMedicalRecord = previousMedicalRecord;
-    this._doctor = doctor;
   }
 
 
@@ -80,11 +79,5 @@ export class Patient {
     this._previousMedicalRecord = value;
   }
 
-  get doctor(): Doctor {
-    return this._doctor;
-  }
 
-  set doctor(value: Doctor) {
-    this._doctor = value;
-  }
 }
