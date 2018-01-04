@@ -12,13 +12,14 @@
   <mat-step label="Doctor Specialisation">
     <mat-form-field>
       <mat-select [(ngModel)]="doctor_spec" [(value)]="specialisation" placeholder="Select Specialisation">
-        <mat-option *ngFor="let specialisation of doctorSp" [value]="specialisation">
+        <mat-option *ngFor="let specialisation of doctorSp" [value]="specialisation"
+                    (click)="getDoctorsByFilter(doctor_spec)">
           {{ specialisation }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-    <div *ngIf="doctor_spec === 'Ophthalmology'">
+    <div *ngIf="notNull===true">
       <div class="example-container mat-elevation-z8">
         <div class="example-header">
           <mat-form-field>
@@ -26,45 +27,34 @@
           </mat-form-field>
         </div>
         <mat-table #table [dataSource]="dataSource">
-          <!--- Note that these columns can be defined in any order.
-                The actual rendered columns are set as a property on the row definition" -->
-          <!-- Position Column -->
-          <ng-container matColumnDef="position">
-            <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.position}}</mat-cell>
+          <!-- Generic column definition -->
+          <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnDef">
+            <mat-header-cell *cdkHeaderCellDef>{{ column.header }}</mat-header-cell>
+            <mat-cell *cdkCellDef="let row">{{ column.cell(row) }}</mat-cell>
           </ng-container>
-
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
-          </ng-container>
-
-          <!-- Weight Column -->
-          <ng-container matColumnDef="weight">
-            <mat-header-cell *matHeaderCellDef> Weight</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.weight}}</mat-cell>
-          </ng-container>
-
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="symbol">
-            <mat-header-cell *matHeaderCellDef> Symbol</mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.symbol}}</mat-cell>
-          </ng-container>
-
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+          <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
-
-
       </div>
-
     </div>
     <div>
       <button mat-button class="btn btn-danger" matStepperPrevious>Previous</button>
       <button mat-button class="btn btn-danger" matStepperNext>Next</button>
     </div>
   </mat-step>
+
+
+  <mat-step label="Doctor Email">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="doctorname@etc.com" required>
+      <mat-hint>Copy the doctor email from the previous table</mat-hint>
+    </mat-form-field>
+    <div>
+      <button mat-button class="btn btn-danger" matStepperPrevious>Previous</button>
+      <button mat-button class="btn btn-danger" matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
 
   <mat-step label="Symptoms">
     <mat-form-field class="example-full-width">

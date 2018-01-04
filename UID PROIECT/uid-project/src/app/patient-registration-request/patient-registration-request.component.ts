@@ -1,5 +1,16 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from "@angular/material";
+import {DoctorService} from "../service/DoctorService";
+
+export interface Element {
+  name: string;
+  pos: number;
+  specialisation: string;
+  email: string;
+}
+
+let ELEMENT_DATA: Element[] = [];
+
 
 @Component({
   selector: 'app-patient-registration-request',
@@ -12,12 +23,17 @@ export class PatientRegistrationRequestComponent implements OnInit {
 
   doctorSp = ['Nephrology', 'Cardiology', 'Ophthalmology', 'Pedriatics', 'Dermatology', 'Orthopedy', 'Gynecology', 'Pneumology'];
   doctor_spec = '';
+  dataSource = new MatTableDataSource<Element>();
+  columns = [
+    {columnDef: 'Position', header: 'Position', cell: (row: Element) => `${row.pos}`},
+    {columnDef: 'Name', header: 'Name', cell: (row: Element) => `${row.name}`},
+    {columnDef: 'Specialisation', header: 'Specialisation', cell: (row: Element) => `${row.specialisation}`},
+    {columnDef: 'Email', header: 'Email', cell: (row: Element) => `${row.email}`}
+  ];
+  displayedColumns = this.columns.map(x => x.columnDef);
+  notNull = false;
 
-  dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
-  displayedColumns = ['position', 'name', 'weight', 'symbol'];
-
-
-  constructor() {
+  constructor(private doctorService: DoctorService) {
   }
 
   ngOnInit() {
@@ -30,36 +46,26 @@ export class PatientRegistrationRequestComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
-
+  getDoctorsByFilter(doctor_specialisation): void {
+    ELEMENT_DATA = [];
+    this.notNull = false;
+    console.log(doctor_specialisation);
+    let doctors = this.doctorService.initializeDoctors();
+    doctors.forEach((doctor, index) => {
+      if (doctor.specialisation === this.doctor_spec) {
+        ELEMENT_DATA.push({
+          name: doctor.firstName,
+          pos: index,
+          specialisation: doctor.specialisation,
+          email: doctor.email
+        });
+      }
+    });
+    console.log(ELEMENT_DATA.length);
+    if (ELEMENT_DATA.length !== 0) {
+      this.dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
+      this.notNull = true;
+    }
+  }
 }
 
-
-export interface Element {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-const ELEMENT_DATA: Element[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
-  {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
-  {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
-  {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
-  {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
-  {position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S'},
-  {position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl'},
-  {position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar'},
-  {position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K'},
-  {position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca'},
-];

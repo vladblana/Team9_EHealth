@@ -1,6 +1,5 @@
 import {Doctor} from '../model/Doctor';
 import {Patient} from '../model/Patient';
-import {Injectable} from '@angular/core';
 
 
 export class DoctorService {
@@ -22,7 +21,7 @@ export class DoctorService {
 
   initializeDoctors(): Array<Doctor> {
 
-    // username: string, password: string, firstName: string, lastName: string, email: string, phoneNumber: string, previousMedicalRecord: string, doctor: Doc
+    // username,password,firstName,lastName,email,phoneNumber,previousMedicalRecord,doctor: Doc
 
     const patient1 = new Patient('calinPat', 'calin', 'CalinPat', 'Timbus', 'calin@calin.com', '1234567890', 'hai pa');
 
