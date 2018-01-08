@@ -1,22 +1,15 @@
 import {Component, Injectable, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {DoctorService} from '../service/DoctorService';
-import {forEach} from '@angular/router/src/utils/collection';
-import {Doctor} from '../model/Doctor';
 
 
 export interface Element {
   name: string;
   position: number;
   specialisation: string;
-
-
-  // constructor( position: number, name: string, specialisation: string) {
-  //   this.name = name;
-  //   this.position = position;
-  //   this.specialisation = specialisation;
-  // }
 }
+
+const ELEMENT_DATA: Element[] = [];
 
 
 @Component({
@@ -35,8 +28,7 @@ export class ViewDoctorsComponent implements OnInit {
 
 
   constructor(private doctorService: DoctorService) {
-
-     this.getDoctors();
+    this.getDoctors();
     this.dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
   }
 
@@ -61,47 +53,15 @@ export class ViewDoctorsComponent implements OnInit {
 
 
   getDoctors(): void {
-
-    let doctors = new Array<Doctor>(2);
-    doctors = this.doctorService.initializeDoctors();
-
+    let doctors = this.doctorService.initializeDoctors();
     doctors.forEach((doctor, index) => {
       console.log(doctor); //
       console.log(index);
-      ELEMENT_DATA.push({position:index, name:doctor.firstName, specialisation:doctor.specialisation});
+      ELEMENT_DATA.push({position: index, name: doctor.firstName, specialisation: doctor.specialisation});
     });
-
   }
-
 }
 
 
-const ELEMENT_DATA: Element[] = [
-
-
-
-  //
-  // {position: 1, name: 'Timbus Calin', specialisation: 'Ophthalmology'},
-  // {position: 2, name: 'Blana Vlad', specialisation: 'Pneumology'},
-  // {position: 3, name: 'Razvan Florea', specialisation: 'Cardiology'},
-  // {position: 4, name: 'Damsa Andreea', specialisation: 'Pedriatics'},
-  // {position: 5, name: 'Timbus Calin', specialisation: 'Ophthalmology'},
-  // {position: 6, name: 'Blana Vlad', specialisation: 'Pneumology'},
-  // {position: 7, name: 'Razvan Florea', specialisation: 'Cardiology'},
-  // {position: 8, name: 'Damsa Andreea', specialisation: 'Pedriatics'},
-  // {position: 9, name: 'Timbus Calin', specialisation: 'Ophthalmology'},
-  // {position: 10, name: 'Blana Vlad', specialisation: 'Pneumology'},
-  // {position: 11, name: 'Razvan Florea', specialisation: 'Cardiology'},
-  // {position: 12, name: 'Damsa Andreea', specialisation: 'Pedriatics'},
-  // {position: 13, name: 'Timbus Calin', specialisation: 'Ophthalmology'},
-  // {position: 14, name: 'Blana Vlad', specialisation: 'Pneumology'},
-  // {position: 15, name: 'Razvan Florea', specialisation: 'Cardiology'},
-  // {position: 16, name: 'Damsa Andreea', specialisation: 'Pedriatics'},
-  // {position: 17, name: 'Timbus Calin', specialisation: 'Ophthalmology'},
-  // {position: 18, name: 'Blana Vlad', specialisation: 'Pneumology'},
-  // {position: 19, name: 'Razvan Florea', specialisation: 'Cardiology'},
-  // {position: 20, name: 'Damsa Andreea', specialisation: 'Pedriatics'},
-
-];
 
 

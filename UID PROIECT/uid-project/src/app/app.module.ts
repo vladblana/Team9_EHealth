@@ -19,9 +19,10 @@ import {PatientMainpageComponent} from './patient-mainpage/patient-mainpage.comp
 import {CdkTableModule} from '@angular/cdk/table';
 import {DoctorPageComponent} from './doctor-page/doctor-page.component';
 import {MatToolbarModule} from '@angular/material';
-import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
-import { PatientNavbarComponent } from './patient-navbar/patient-navbar.component';
+import {ViewDoctorsComponent} from './view-doctors/view-doctors.component';
+import {PatientNavbarComponent} from './patient-navbar/patient-navbar.component';
 import {DoctorService} from './service/DoctorService';
+import {CreateAppointmentComponent} from './create-appointment/create-appointment.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
   {path: 'patient-mainpage/:username', component: PatientMainpageComponent},
   {path: 'view-doctors', component: ViewDoctorsComponent},
   {path: 'patient-registration-request', component: PatientRegistrationRequestComponent},
+  {path: 'create-appointment', component: CreateAppointmentComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
 
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
     PatientRegistrationRequestComponent,
     ViewDoctorsComponent,
     PatientNavbarComponent,
+    CreateAppointmentComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -66,7 +69,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatToolbarModule,
     MatPaginatorModule,
-    CdkTableModule
+    CdkTableModule,
   ],
   providers: [DoctorService],
   bootstrap: [AppComponent]
