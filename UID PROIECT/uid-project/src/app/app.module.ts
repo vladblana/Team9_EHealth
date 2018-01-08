@@ -53,6 +53,8 @@ const appRoutes: Routes = [
     PatientRegistrationRequestComponent,
     ViewDoctorsComponent,
     PatientNavbarComponent,
+    CreateAppointmentComponent,
+    DeleteAccountComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -73,7 +75,7 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     CdkTableModule
   ],
-  providers: [DoctorService],
+  providers: [DoctorService, PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
