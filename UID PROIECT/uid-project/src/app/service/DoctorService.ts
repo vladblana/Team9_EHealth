@@ -28,12 +28,14 @@ export class DoctorService {
     let patientArray = Array<Patient>(2);
     patientArray.push(patient1);
 
-    const doctor1 = new Doctor('calin', 'calin', 'Calin', 'Timbus', 'calin@calin.com', '1234567890', 'Pedriatics', patientArray);
-    const doctor2 = new Doctor('blana', 'blana', 'Vlad', 'Blana', 'blana@vlad.com', '1234567890', 'Dermatology', patientArray);
+    const doctor1 = new Doctor('calin', 'calin', 'Calin', 'Timbus', 'calintimbus@gmail.com', '1234567890', 'Pedriatics', patientArray);
+    const doctor2 = new Doctor('blana', 'blana', 'Vlad', 'Blana', 'blanavlad@gmail.com', '1234567890', 'Dermatology', patientArray);
+    const doctor3 = new Doctor('razvan', 'razvan', 'Razvan', 'Florea', 'razvanflorea@gmail.com', '1234567890', 'Dermatology', patientArray);
 
-    let doctorArray = Array<Doctor>(2);
+    let doctorArray = Array<Doctor>(3);
     doctorArray.push(doctor1);
     doctorArray.push(doctor2);
+    doctorArray.push(doctor3);
 
     return doctorArray;
   }

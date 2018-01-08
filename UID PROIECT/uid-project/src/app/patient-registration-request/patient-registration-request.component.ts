@@ -3,7 +3,8 @@ import {MatPaginator, MatTableDataSource} from "@angular/material";
 import {DoctorService} from "../service/DoctorService";
 
 export interface Element {
-  name: string;
+  firstName: string;
+  lastName: string;
   pos: number;
   specialisation: string;
   email: string;
@@ -26,7 +27,8 @@ export class PatientRegistrationRequestComponent implements OnInit {
   dataSource = new MatTableDataSource<Element>();
   columns = [
     {columnDef: 'Position', header: 'Position', cell: (row: Element) => `${row.pos}`},
-    {columnDef: 'Name', header: 'Name', cell: (row: Element) => `${row.name}`},
+    {columnDef: 'First Name', header: ' First Name', cell: (row: Element) => `${row.firstName}`},
+    {columnDef: 'Last Name', header: 'Last Name', cell: (row: Element) => `${row.lastName}`},
     {columnDef: 'Specialisation', header: 'Specialisation', cell: (row: Element) => `${row.specialisation}`},
     {columnDef: 'Email', header: 'Email', cell: (row: Element) => `${row.email}`}
   ];
@@ -54,7 +56,8 @@ export class PatientRegistrationRequestComponent implements OnInit {
     doctors.forEach((doctor, index) => {
       if (doctor.specialisation === this.doctor_spec) {
         ELEMENT_DATA.push({
-          name: doctor.firstName,
+          firstName: doctor.firstName,
+          lastName: doctor.lastName,
           pos: index,
           specialisation: doctor.specialisation,
           email: doctor.email

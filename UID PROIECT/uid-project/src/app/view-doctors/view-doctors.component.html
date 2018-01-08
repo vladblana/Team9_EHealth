@@ -1,5 +1,6 @@
 <app-patient-navbar></app-patient-navbar>
 
+
 <h1>
   View Doctors!
 </h1>
@@ -7,42 +8,30 @@
 
 <mat-form-field>
   <mat-select [(ngModel)]="doctor_spec" [(value)]="specialisation" placeholder="Select Specialisation">
-    <mat-option *ngFor="let specialisation of doctorSp" [value]="specialisation">
+    <mat-option *ngFor="let specialisation of doctorSp" [value]="specialisation"
+                (click)="getDoctorsByFilter(doctor_spec)">
       {{ specialisation }}
     </mat-option>
   </mat-select>
 </mat-form-field>
 
 
-<div class="example-container mat-elevation-z8">
-  <mat-table #table [dataSource]="dataSource">
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No.</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}}</mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Doctor</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}}</mat-cell>
-    </ng-container>
-
-    <!-- Specialisation Column -->
-    <ng-container matColumnDef="specialisation">
-      <mat-header-cell *matHeaderCellDef> Specialisation</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.specialisation}}</mat-cell>
-    </ng-container>
-
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-
-  <mat-paginator #paginator
-                 [pageSize]="10"
-                 [pageSizeOptions]="[5, 10, 20]">
-  </mat-paginator>
+<div *ngIf="notNull===true">
+  <div class="example-container mat-elevation-z8">
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+    <mat-table #table [dataSource]="dataSource">
+      <!-- Generic column definition -->
+      <ng-container *ngFor="let column of columns" [cdkColumnDef]="column.columnDef">
+        <mat-header-cell *cdkHeaderCellDef>{{ column.header }}</mat-header-cell>
+        <mat-cell *cdkCellDef="let row">{{ column.cell(row) }}</mat-cell>
+      </ng-container>
+      <mat-header-row *cdkHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *cdkRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
 </div>
 
