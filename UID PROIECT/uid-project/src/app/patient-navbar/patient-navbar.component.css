@@ -1,5 +1,5 @@
 mat-toolbar{
-  background-color : #424f66;
+  background-color : #E1AE49;
   color : white;
 }
 .toolbar-spacer{
@@ -8,4 +8,8 @@ mat-toolbar{
 
 li{
   list-style: none;
+}
+
+a:hover {
+  font-weight:bold;
 }
