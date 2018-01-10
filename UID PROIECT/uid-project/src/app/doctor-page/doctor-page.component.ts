@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./doctor-page.component.css']
 })
 export class DoctorPageComponent implements OnInit {
-
+  // todo discuss what to do with this page
   constructor() { }
 
   ngOnInit() {

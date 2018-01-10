@@ -11,6 +11,8 @@ import {MatDatepickerModule, MatIconModule, MatNativeDateModule} from '@angular/
 import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
+import { MyPatientsComponent } from './my-patients/my-patients.component';
+
 import {MatStepperModule} from '@angular/material/stepper';
 import {PatientRegistrationRequestComponent} from './patient-registration-request/patient-registration-request.component';
 import {MatTableModule} from '@angular/material/table';
@@ -22,6 +24,9 @@ import {MatToolbarModule} from '@angular/material';
 import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
 import { PatientNavbarComponent } from './patient-navbar/patient-navbar.component';
 import {DoctorService} from './service/DoctorService';
+import {Doctor} from './model/Doctor';
+import {Patient} from './model/Patient';
+import {DoctorPageNavbarComponent} from './doctor-page-navbar/doctor-page-navbar.component';
 import {CreateAppointmentComponent} from './create-appointment/create-appointment.component';
 import {PatientService} from './service/PatientService';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
@@ -31,6 +36,7 @@ const appRoutes: Routes = [
   {path: 'cacat', component: AppComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'not-found', component: PageNotFoundComponent},
+  {path: 'my-patients', component: MyPatientsComponent},
   {path: 'doctor-page', component: DoctorPageComponent},
   {path: 'patient-mainpage', component: PatientMainpageComponent},
   {path: 'patient-mainpage/:username', component: PatientMainpageComponent},
@@ -48,8 +54,10 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     PageNotFoundComponent,
+    MyPatientsComponent,
     PatientMainpageComponent,
     DoctorPageComponent,
+    DoctorPageNavbarComponent,
     PatientRegistrationRequestComponent,
     ViewDoctorsComponent,
     PatientNavbarComponent,
@@ -68,6 +76,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatIconModule,
     FormsModule,
+    MatToolbarModule,
     ReactiveFormsModule,
     MatStepperModule,
     MatTableModule,
