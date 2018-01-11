@@ -1,13 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {PatientService} from '../service/PatientService';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 export interface PatientElement {
   position: number;
+  username: string;
   firstName: string;
   lastName: string;
-  previousMedicalRecord: string;
 }
 
 let PATIENT_ELEMENT_DATA: PatientElement[] = [];
@@ -22,14 +23,15 @@ export class MyPatientsComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<PatientElement>();
 
   columns = [
-    {columnDef: 'Position', header: 'Position', cell: (row: PatientElement) => `${row.position}`},
-    {columnDef: 'First Name', header: ' First Name', cell: (row: PatientElement) => `${row.firstName}`},
-    {columnDef: 'Last Name', header: 'Last Name', cell: (row: PatientElement) => `${row.lastName}`},
-    {columnDef: 'Illness', header: 'Illness', cell: (row: PatientElement) => `${row.previousMedicalRecord}`},
+    {columnDef: 'Position', header: 'Position'},
+    {columnDef: 'Name', header: 'Name'},
+    {columnDef: 'MedicalRecord', header: 'Medical Record'},
+    {columnDef: 'MedicalHistory', header: 'Medical History'},
+    {columnDef: 'Appointments', header: 'Appointments'},
   ];
   displayedColumns = this.columns.map(x => x.columnDef);
 
-  constructor(private patientService: PatientService) {
+  constructor(private patientService: PatientService, private router: Router, private route: ActivatedRoute) {
     this.getMyPatients('doctor'); // todo use the currently logged in doctor here
     this.dataSource = new MatTableDataSource<PatientElement>(PATIENT_ELEMENT_DATA);
   }
@@ -52,12 +54,22 @@ export class MyPatientsComponent implements OnInit, OnDestroy {
     patients.forEach((patient, index) => {
       PATIENT_ELEMENT_DATA.push({
         position: index,
+        username: patient.username,
         firstName: patient.firstName,
-        lastName: patient.lastName,
-        previousMedicalRecord: patient.previousMedicalRecord
+        lastName: patient.lastName
       });
     });
   }
+  LinkToAppointments(id: string) {
+    this.router.navigate(['/appointments/' + id]);
+  }
+  LinkToMedicalRecord(id: string) {
+    this.router.navigate(['/doctor-medical-record/' + id]);
+  }
+  LinkToMedicalHistory(id: string) {
+    this.router.navigate(['/doctor-medical-history/' + id]);
+  }
+
 }
 
 

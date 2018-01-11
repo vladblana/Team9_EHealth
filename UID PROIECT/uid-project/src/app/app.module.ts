@@ -33,9 +33,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import {DoctorReviewComponent } from './doctor-review/doctor-review.component';
 import {MatSliderModule} from '@angular/material/slider';
-import {DialogOverviewExampleDialogComponent} from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import {PatientUnlistingRequestComponent} from './patient-unlisting-request/patient-unlisting-request.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DoctorMedicalHistoryComponent } from './doctor-medical-history/doctor-medical-history.component';
+import { DoctorMedicalRecordComponent } from './doctor-medical-record/doctor-medical-record.component';
+import {DialogOverviewExampleDialogComponent} from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -53,6 +55,8 @@ const appRoutes: Routes = [
   {path: 'create-appointment', component: CreateAppointmentComponent},
   {path: 'delete-account', component: DeleteAccountComponent},
   {path: 'doctor-review', component: DoctorReviewComponent},
+  {path: 'doctor-medical-history/:username', component: DoctorMedicalHistoryComponent},
+  {path: 'doctor-medical-record/:username', component: DoctorMedicalRecordComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
 
@@ -72,9 +76,11 @@ const appRoutes: Routes = [
     PatientNavbarComponent,
     CreateAppointmentComponent,
     DeleteAccountComponent,
-    DialogOverviewExampleDialogComponent,
+    DoctorMedicalHistoryComponent,
+    DoctorMedicalRecordComponent,
     DoctorReviewComponent,
     PatientUnlistingRequestComponent,
+    DialogOverviewExampleDialogComponent,
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
   imports: [

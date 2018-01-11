@@ -1,5 +1,5 @@
 mat-toolbar{
-  background-color : #E1AE49;
+  background-color : #424f66;
   color : white;
 }
 .toolbar-spacer{
@@ -9,6 +9,11 @@ mat-toolbar{
 li{
   list-style: none;
 }
+
+.navbar-element{
+  color:white;
+}
+
 
 a:hover {
   font-weight:bold;

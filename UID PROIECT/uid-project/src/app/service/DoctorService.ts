@@ -29,9 +29,9 @@ export class DoctorService {
     appointmentArray.push(appointment1);
 
     // patients
-    const patient1 = new Patient('calinPat', 'calin', 'CalinPat', 'Timbus', 'calin@calin.com', '1234567890', 'hai pa', appointmentArray);
+    const patient1 = new Patient('calinPat', 'calin', 'CalinPat', 'Timbus', 'calin@calin.com', '1234567890', null, null, appointmentArray);
 
-    let patientArray = Array<Patient>(4);
+    let patientArray = Array<Patient>(0);
     patientArray.push(patient1);
 
     // doctors
@@ -40,7 +40,7 @@ export class DoctorService {
     const doctor3 = new Doctor('razvan', 'razvan', 'Razvan', 'Florea', 'razvanflorea@gmail.com', '1234567890', 'Dermatology', patientArray);
     const doctor4 = new Doctor('andreea', 'andreea', 'Andreea', 'Damsa', 'andreeadamsa@gmail.com', '1234567890', 'Pediatrics', patientArray);
 
-    let doctorArray = Array<Doctor>(3);
+    let doctorArray = Array<Doctor>(0);
     doctorArray.push(doctor1);
     doctorArray.push(doctor2);
     doctorArray.push(doctor3);

@@ -5,6 +5,11 @@ mat-toolbar{
 .toolbar-spacer{
   padding: 0 14px;
 }
+
+li{
+  list-style: none;
+}
+
 .navbar-element{
   color:white;
 }
