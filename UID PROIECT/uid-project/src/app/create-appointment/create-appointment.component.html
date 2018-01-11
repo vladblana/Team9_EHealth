@@ -1,22 +1,89 @@
-<div class="flex-container">
-  <mat-form-field class="example-full-width">
-    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+<mat-vertical-stepper [linear]="true">
+  <div class="flex-container">
+    <mat-step label="Choose a date" [stepControl]="dateFormGroup">
+      <form [formGroup]="dateFormGroup">
+        <mat-form-field class="example-full-width">
+          <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date"
+                 formControlName="dateCtrl" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </form>
+      <div>
+        <button mat-button class="btn btn-info" matStepperNext>Next</button>
+      </div>
+    </mat-step>
 
-  <mat-form-field>
-    <mat-select placeholder="Hour">
-      <mat-option>None</mat-option>
-      <mat-option *ngFor="let hour of filteredHours(hours)" [value]="hour">{{hour}}</mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-step label="Hour and Minutes" [stepControl]="timeFormGroup">
+      <form [formGroup]="timeFormGroup">
+        <mat-form-field>
+          <mat-select placeholder="Hour" formControlName="timeHoursFormCtrl" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let hour of filteredHours(hours)" [value]="hour">{{hour}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Minutes" formControlName="timeMinutesFormCtrl" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let minute of minutes" [value]="minute">{{minute}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <mat-hint align="center">Only the available hours and minutes are displayed</mat-hint>
+        </div>
+      </form>
+      <div>
+        <button mat-button class="btn btn-info" matStepperPrevious>Back</button>
+        <button mat-button class="btn btn-info" matStepperNext>Next</button>
+      </div>
+    </mat-step>
 
-  <mat-form-field>
-    <mat-select placeholder="Minutes">
-      <mat-option>None</mat-option>
-      <mat-option *ngFor="let minute of minutes" [value]="minute">{{minute}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
+    <mat-step label="Doctor Name" [stepControl]="doctorNameFormGroup">
+      <form [formGroup]="doctorNameFormGroup">
+        <mat-form-field>
+          <mat-select placeholder="Doctor Name" formControlName="doctorNameFormCtrl" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let doctorName of doctorNames" [value]="doctorName">{{doctorName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button class="btn btn-info" matStepperPrevious>Back</button>
+          <button mat-button class="btn btn-info" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
 
+    <mat-step label="Consulation's Urgency">
+      <mat-card>
+        <mat-card-content>
+          <mat-radio-group class="example-radio-group" [(ngModel)]="pickedStatus">
+            <mat-radio-button class="example-radio-button" *ngFor="let status of optionRadioValues" [value]="status">
+              {{status}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </mat-card-content>
+      </mat-card>
+      <button mat-button class="btn btn-info" matStepperPrevious>Back</button>
+      <button mat-button class="btn btn-info" matStepperNext>Next</button>
+    </mat-step>
+
+    <mat-step label="Symptoms">
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Input any relevant symptoms"></textarea>
+      </mat-form-field>
+      <div>
+        <mat-hint align="center">Click the end-triangle to adjust the size</mat-hint>
+      </div>
+      <div>
+        <button mat-button class="btn btn-info" matStepperPrevious>Back</button>
+        <button mat-button class="btn btn-info" matStepperNext>Next</button>
+      </div>
+    </mat-step>
+  </div>
+  <mat-step label="Confirm Appointment">
+    <div>
+      <button mat-button class="btn btn-info" matStepperPrevious>Back</button>
+      <button mat-button class="btn btn-info" (click)="onRequestAppointment()">Request Appointment</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
