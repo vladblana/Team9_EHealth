@@ -59,7 +59,7 @@ export class MyPatientsComponent implements OnInit, OnDestroy {
     });
   }
 
-
+}
 
 
 

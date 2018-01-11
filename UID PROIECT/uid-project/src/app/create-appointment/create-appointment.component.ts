@@ -63,7 +63,7 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   retrieveDoctorNames() {
-    this.doctors.forEach((doctor, index) => {
+    this.doctors.forEach((doctor) => {
       console.log(this.pickedStatus);
       this.doctorNames.push(doctor.firstName + ' ' + doctor.lastName);
     });

@@ -11,7 +11,7 @@ import {MatDatepickerModule, MatIconModule, MatNativeDateModule} from '@angular/
 import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
-import { MyPatientsComponent } from './my-patients/my-patients.component';
+import {MyPatientsComponent} from './my-patients/my-patients.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {PatientRegistrationRequestComponent} from './patient-registration-request/patient-registration-request.component';
 import {MatTableModule} from '@angular/material/table';
@@ -20,11 +20,9 @@ import {PatientMainpageComponent} from './patient-mainpage/patient-mainpage.comp
 import {CdkTableModule} from '@angular/cdk/table';
 import {DoctorPageComponent} from './doctor-page/doctor-page.component';
 import {MatToolbarModule} from '@angular/material';
-import { ViewDoctorsComponent } from './view-doctors/view-doctors.component';
-import { PatientNavbarComponent } from './patient-navbar/patient-navbar.component';
+import {ViewDoctorsComponent} from './view-doctors/view-doctors.component';
+import {PatientNavbarComponent} from './patient-navbar/patient-navbar.component';
 import {DoctorService} from './service/DoctorService';
-import {Doctor} from './model/Doctor';
-import {Patient} from './model/Patient';
 import {DoctorPageNavbarComponent} from './doctor-page-navbar/doctor-page-navbar.component';
 import {CreateAppointmentComponent} from './create-appointment/create-appointment.component';
 import {PatientService} from './service/PatientService';
@@ -33,7 +31,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
-import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
+import {DialogOverviewExampleDialogComponent} from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
+import {PatientUnlistingRequestComponent} from './patient-unlisting-request/patient-unlisting-request.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -46,6 +46,8 @@ const appRoutes: Routes = [
   {path: 'patient-mainpage/:username', component: PatientMainpageComponent},
   {path: 'view-doctors', component: ViewDoctorsComponent},
   {path: 'patient-registration-request', component: PatientRegistrationRequestComponent},
+  {path: 'patient-unlisting-request', component: PatientUnlistingRequestComponent},
+  {path: 'patient-unlisting-request/:username', component: PatientUnlistingRequestComponent},
   {path: 'create-appointment', component: CreateAppointmentComponent},
   {path: 'delete-account', component: DeleteAccountComponent},
   {path: '**', redirectTo: '/not-found'}
@@ -68,6 +70,7 @@ const appRoutes: Routes = [
     CreateAppointmentComponent,
     DeleteAccountComponent,
     DialogOverviewExampleDialogComponent,
+    PatientUnlistingRequestComponent,
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
   imports: [
@@ -92,7 +95,8 @@ const appRoutes: Routes = [
     MatCheckboxModule,
     MatCardModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [DoctorService, PatientService],
   bootstrap: [AppComponent]

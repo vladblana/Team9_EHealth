@@ -1,0 +1,19 @@
+<div class="flex-container">
+  <mat-form-field>
+    <mat-select placeholder="Choose Doctor" [formControl]="doctorControl" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let doctorName of myDoctors" [value]="doctorName">
+        {{doctorName}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="doctorControl.hasError('required')">Please choose a doctor</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Input any problem"></textarea>
+    <mat-hint align="center">Click the end-triangle to adjust the size</mat-hint>
+  </mat-form-field>
+  <div>
+    <button class="btn btn-primary" (click)="onSendDelisting()">Delist</button>
+  </div>
+</div>
