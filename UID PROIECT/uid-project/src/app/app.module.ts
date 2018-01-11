@@ -12,7 +12,6 @@ import {MatFormFieldModule} from '@angular/material';
 import {MatInputModule} from '@angular/material';
 import {MatSelectModule} from '@angular/material/select';
 import { MyPatientsComponent } from './my-patients/my-patients.component';
-
 import {MatStepperModule} from '@angular/material/stepper';
 import {PatientRegistrationRequestComponent} from './patient-registration-request/patient-registration-request.component';
 import {MatTableModule} from '@angular/material/table';
@@ -29,7 +28,12 @@ import {Patient} from './model/Patient';
 import {DoctorPageNavbarComponent} from './doctor-page-navbar/doctor-page-navbar.component';
 import {CreateAppointmentComponent} from './create-appointment/create-appointment.component';
 import {PatientService} from './service/PatientService';
-import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import {DeleteAccountComponent} from './delete-account/delete-account.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
+import { DialogOverviewExampleDialogComponent } from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -63,7 +67,9 @@ const appRoutes: Routes = [
     PatientNavbarComponent,
     CreateAppointmentComponent,
     DeleteAccountComponent,
+    DialogOverviewExampleDialogComponent,
   ],
+  entryComponents: [DialogOverviewExampleDialogComponent],
   imports: [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
@@ -82,7 +88,11 @@ const appRoutes: Routes = [
     MatTableModule,
     MatToolbarModule,
     MatPaginatorModule,
-    CdkTableModule
+    CdkTableModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatRadioModule,
+    MatDialogModule
   ],
   providers: [DoctorService, PatientService],
   bootstrap: [AppComponent]
