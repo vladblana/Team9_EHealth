@@ -21,7 +21,9 @@ export class CreateAppointmentComponent implements OnInit {
   timeFormGroup: FormGroup;
   doctorNameFormGroup: FormGroup;
   optionRadioValues = ['Routine', 'Urgent'];
+  currentDate: string;
   pickedStatus: string;
+  symptoms: string;
 
 
   filteredHours() {
@@ -88,6 +90,13 @@ export class CreateAppointmentComponent implements OnInit {
 
   onRequestAppointment() {
     console.log('Appointment requested');
+    let currentDate = this.currentDate.toString();
+    console.log('Date is: ', currentDate.slice(0,currentDate.indexOf("00")));
+    console.log('Hour', this.timeFormGroup.controls['timeHoursFormCtrl'].value);
+    console.log('Minutes', this.timeFormGroup.controls['timeMinutesFormCtrl'].value);
+    console.log('Doctor Name is', this.doctorNameFormGroup.controls['doctorNameFormCtrl'].value);
+    console.log('Picked Status is', this.pickedStatus);
+    console.log('Symptoms', this.symptoms);
     this.openDialog();
   }
 }
