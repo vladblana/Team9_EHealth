@@ -1,0 +1,51 @@
+<app-patient-navbar></app-patient-navbar>
+
+
+<mat-vertical-stepper [linear]="true">
+  <div class="flex-container">
+
+    <mat-step label="Doctor Name" [stepControl]="doctorNameFormGroup">
+      <form [formGroup]="doctorNameFormGroup">
+        <mat-form-field>
+          <mat-select placeholder="Doctor Name" formControlName="doctorNameFormCtrl" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let doctorName of doctorNames" [value]="doctorName">{{doctorName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button class="btn btn-info" matStepperPrevious>Back</button>
+          <button mat-button class="btn btn-info" matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step  label="Review">
+      <br>
+      <mat-slider thumbLabel tickInterval="1" min="0" max="5" step="1" value="5" ></mat-slider>
+
+      <div>
+        <button mat-button class="btn btn-info" matStepperPrevious>Back</button>
+        <button mat-button class="btn btn-info" matStepperNext>Next</button>
+      </div>
+    </mat-step>
+
+    <mat-step label="Review Motivation">
+      <mat-form-field class="example-full-width">
+        <textarea matInput placeholder="Let us know your feedback"></textarea>
+      </mat-form-field>
+      <div>
+        <mat-hint align="center">Click the end-triangle to adjust the size</mat-hint>
+      </div>
+      <div>
+        <button mat-button class="btn btn-info" matStepperPrevious>Back</button>
+        <button mat-button class="btn btn-info" matStepperNext>Next</button>
+      </div>
+    </mat-step>
+  </div>
+  <mat-step label="Send Review">
+    <div>
+      <button mat-button class="btn btn-info" matStepperPrevious>Back</button>
+      <button mat-button class="btn btn-info" (click)="onRequestAppointment()"> Confirm </button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
