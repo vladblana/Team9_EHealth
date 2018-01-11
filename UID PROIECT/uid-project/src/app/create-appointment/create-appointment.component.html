@@ -6,7 +6,7 @@
       <form [formGroup]="dateFormGroup">
         <mat-form-field class="example-full-width">
           <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="Choose a date"
-                 formControlName="dateCtrl" required>
+                 formControlName="dateCtrl" [(ngModel)]="currentDate" required>
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
@@ -71,7 +71,7 @@
 
     <mat-step label="Symptoms">
       <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Input any relevant symptoms"></textarea>
+        <textarea matInput placeholder="Input any relevant symptoms" [(ngModel)]="symptoms"></textarea>
       </mat-form-field>
       <div>
         <mat-hint align="center">Click the end-triangle to adjust the size</mat-hint>
