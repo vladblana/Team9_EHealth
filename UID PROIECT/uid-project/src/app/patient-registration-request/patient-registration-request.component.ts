@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from "@angular/material";
 import {DoctorService} from "../service/DoctorService";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+
 
 export interface Element {
   firstName: string;
@@ -34,13 +36,26 @@ export class PatientRegistrationRequestComponent implements OnInit {
   ];
   displayedColumns = this.columns.map(x => x.columnDef);
   notNull = false;
+  usernameFormGroup: FormGroup;
+  doctorSpecFormGroup: FormGroup;
+  doctorEmailFormGroup: FormGroup;
 
-  constructor(private doctorService: DoctorService) {
+  constructor(private doctorService: DoctorService, private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
-
+    this.usernameFormGroup = this.formBuilder.group({
+      usernameFormCtrl: ['', Validators.required]
+    });
+    this.doctorSpecFormGroup = this.formBuilder.group({
+      doctorSpecFormCtrl: ['', Validators.required]
+    });
+    this.doctorEmailFormGroup = this.formBuilder.group({
+      doctorEmailFormCtrl: ['You must input a valid email', Validators.required]
+    });
   }
+
+
 
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim();
