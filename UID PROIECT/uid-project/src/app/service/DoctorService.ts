@@ -1,5 +1,6 @@
 import {Doctor} from '../model/Doctor';
 import {Patient} from '../model/Patient';
+import {Appointment} from '../model/Appointment';
 
 
 export class DoctorService {
@@ -21,16 +22,23 @@ export class DoctorService {
 
   initializeDoctors(): Array<Doctor> {
 
-    // username,password,firstName,lastName,email,phoneNumber,previousMedicalRecord,doctor: Doc
 
-    const patient1 = new Patient('calinPat', 'calin', 'CalinPat', 'Timbus', 'calin@calin.com', '1234567890', 'hai pa');
+    // apointments
+    const appointment1 = new Appointment('2018-12-10', '8', '00', 'Blana Vlad', 'urgent', 'symptoms');
+    let appointmentArray = Array<Appointment>(1);
+    appointmentArray.push(appointment1);
 
-    let patientArray = Array<Patient>(2);
+    // patients
+    const patient1 = new Patient('calinPat', 'calin', 'CalinPat', 'Timbus', 'calin@calin.com', '1234567890', 'hai pa', appointmentArray);
+
+    let patientArray = Array<Patient>(4);
     patientArray.push(patient1);
 
+    // doctors
     const doctor1 = new Doctor('calin', 'calin', 'Calin', 'Timbus', 'calintimbus@gmail.com', '1234567890', 'Pedriatics', patientArray);
     const doctor2 = new Doctor('blana', 'blana', 'Vlad', 'Blana', 'blanavlad@gmail.com', '1234567890', 'Dermatology', patientArray);
     const doctor3 = new Doctor('razvan', 'razvan', 'Razvan', 'Florea', 'razvanflorea@gmail.com', '1234567890', 'Dermatology', patientArray);
+    const doctor4 = new Doctor('andreea', 'andreea', 'Andreea', 'Damsa', 'andreeadamsa@gmail.com', '1234567890', 'Pediatrics', patientArray);
 
     let doctorArray = Array<Doctor>(3);
     doctorArray.push(doctor1);
@@ -39,6 +47,7 @@ export class DoctorService {
 
     return doctorArray;
   }
+
 
   addDoctor(doctor: Doctor) {
     this.doctors.push(doctor);

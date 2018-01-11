@@ -1,4 +1,4 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, OnInit, Inject, Input} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
@@ -9,6 +9,9 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class DialogOverviewExampleDialogComponent implements OnInit {
 
   private yesClicked: boolean;
+  @Input()
+  private description: string;
+
 
   constructor(public dialogRef: MatDialogRef<DialogOverviewExampleDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any) {

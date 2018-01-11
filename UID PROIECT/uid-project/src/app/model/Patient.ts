@@ -1,4 +1,5 @@
 import {Doctor} from './Doctor';
+import {Appointment} from './Appointment';
 
 // A patient has a single doctor
 export class Patient {
@@ -9,10 +10,10 @@ export class Patient {
   private _email: string;
   private _phoneNumber: string;
   private _previousMedicalRecord: string;
+  private _appointments: Array<Appointment>;
 
 
-
-  constructor(username: string, password: string, firstName: string, lastName: string, email: string, phoneNumber: string, previousMedicalRecord: string) {
+  constructor(username: string, password: string, firstName: string, lastName: string, email: string, phoneNumber: string, previousMedicalRecord: string, appointments: Array<Appointment>) {
     this._username = username;
     this._password = password;
     this._firstName = firstName;
@@ -20,8 +21,8 @@ export class Patient {
     this._email = email;
     this._phoneNumber = phoneNumber;
     this._previousMedicalRecord = previousMedicalRecord;
+    this._appointments = appointments;
   }
-
 
   get username(): string {
     return this._username;

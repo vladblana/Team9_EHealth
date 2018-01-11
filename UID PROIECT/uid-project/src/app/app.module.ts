@@ -31,6 +31,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
+import {DoctorReviewComponent } from './doctor-review/doctor-review.component';
+import {MatSliderModule} from '@angular/material/slider';
 import {DialogOverviewExampleDialogComponent} from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import {PatientUnlistingRequestComponent} from './patient-unlisting-request/patient-unlisting-request.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -50,6 +52,7 @@ const appRoutes: Routes = [
   {path: 'patient-unlisting-request/:username', component: PatientUnlistingRequestComponent},
   {path: 'create-appointment', component: CreateAppointmentComponent},
   {path: 'delete-account', component: DeleteAccountComponent},
+  {path: 'doctor-review', component: DoctorReviewComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
 
@@ -70,6 +73,7 @@ const appRoutes: Routes = [
     CreateAppointmentComponent,
     DeleteAccountComponent,
     DialogOverviewExampleDialogComponent,
+    DoctorReviewComponent,
     PatientUnlistingRequestComponent,
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
@@ -96,7 +100,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatRadioModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSliderModule
   ],
   providers: [DoctorService, PatientService],
   bootstrap: [AppComponent]

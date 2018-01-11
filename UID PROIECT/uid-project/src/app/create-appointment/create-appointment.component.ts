@@ -72,7 +72,9 @@ export class CreateAppointmentComponent implements OnInit {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
       width: '250px',
+      data: {title: 'Appointment request', description: 'Are you sure you want to confirm the appointment?'},
     });
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
       if (result === true) {
