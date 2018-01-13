@@ -38,6 +38,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { DoctorMedicalHistoryComponent } from './doctor-medical-history/doctor-medical-history.component';
 import { DoctorMedicalRecordComponent } from './doctor-medical-record/doctor-medical-record.component';
 import {DialogOverviewExampleDialogComponent} from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -107,7 +109,8 @@ const appRoutes: Routes = [
     MatRadioModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatSliderModule
+    MatSliderModule,
+    ChartsModule
   ],
   providers: [DoctorService, PatientService],
   bootstrap: [AppComponent]
