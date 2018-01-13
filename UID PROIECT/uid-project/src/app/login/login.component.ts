@@ -1,22 +1,24 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {AuthService} from "../service/auth.service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   // Also AuthenticationService to be injected....
   // private authService
 
   myRandomString = 'E-Health';
-  username: String;
-  password: String;
+  username: string;
+  password: string;
 
 
-  constructor(private router: Router, private route: ActivatedRoute) {
+  constructor(private router: Router, private route: ActivatedRoute, private authService: AuthService) {
 
   }
 
@@ -24,16 +26,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDoing() {
-    console.log(this.username);
-    console.log(this.password);
-  }
-
   onLogin() {
-   // this.router.navigate(['/patient-mainpage'], {relativeTo: this.route});
-    this.router.navigate(['/patient-mainpage/' + this.username], {relativeTo: this.route});
-   // this.onDoing();
-
+    this.authService.loggedInUsername = this.username;
+    this.router.navigate(['/patient-mainpage/'], {relativeTo: this.route});
   }
 
   onRegister() {

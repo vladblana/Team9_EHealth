@@ -1,15 +1,17 @@
 import {Patient} from '../model/Patient';
-import {Doctor} from '../model/Doctor';
 import {MedicalRecord} from '../model/MedicalRecord';
 import {MedicalHistory} from '../model/MedicalHistory';
 import {Appointment} from '../model/Appointment';
+import {Injectable} from "@angular/core";
 
+@Injectable()
 export class PatientService {
 
   private _patients: Array<Patient>;
 
 
   constructor() {
+
   }
 
 
@@ -30,8 +32,8 @@ export class PatientService {
     appointmentArray.push(appointment1);
 
     let surgicalHistory = Array<string>(0);
-    let medicalAllergies =  Array<string>(0);
-    let habits =  Array<string>(0);
+    let medicalAllergies = Array<string>(0);
+    let habits = Array<string>(0);
     let familyHistory = new Map<string, string>();
 
     surgicalHistory.push('vasectomy');
@@ -45,7 +47,7 @@ export class PatientService {
     familyHistory.set('Mother', 'Alzheimer\'s disease');
     familyHistory.set('Grandmother', 'arrhythmia');
 
-    let medications =  Array<string>(0);
+    let medications = Array<string>(0);
     let labResults = new Map<string, string>();
 
     medications.push('xanax');
@@ -82,7 +84,7 @@ export class PatientService {
 
     for (let patient of this._patients) {
       if (patient.username === username) {
-      return patient;
+        return patient;
       }
     }
   }

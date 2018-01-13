@@ -9,7 +9,6 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 export class DialogOverviewExampleDialogComponent implements OnInit {
 
   private yesClicked: boolean;
-  @Input()
   private description: string;
 
 

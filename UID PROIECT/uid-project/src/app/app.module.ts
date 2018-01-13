@@ -22,10 +22,8 @@ import {DoctorPageComponent} from './doctor-page/doctor-page.component';
 import {MatToolbarModule} from '@angular/material';
 import {ViewDoctorsComponent} from './view-doctors/view-doctors.component';
 import {PatientNavbarComponent} from './patient-navbar/patient-navbar.component';
-import {DoctorService} from './service/DoctorService';
 import {DoctorPageNavbarComponent} from './doctor-page-navbar/doctor-page-navbar.component';
 import {CreateAppointmentComponent} from './create-appointment/create-appointment.component';
-import {PatientService} from './service/PatientService';
 import {DeleteAccountComponent} from './delete-account/delete-account.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
@@ -39,6 +37,9 @@ import { DoctorMedicalHistoryComponent } from './doctor-medical-history/doctor-m
 import { DoctorMedicalRecordComponent } from './doctor-medical-record/doctor-medical-record.component';
 import {DialogOverviewExampleDialogComponent} from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import { ChartsModule } from 'ng2-charts';
+import {AuthService} from "./service/auth.service";
+import {DoctorService} from "./service/DoctorService";
+import {PatientService} from "./service/PatientService";
 
 
 const appRoutes: Routes = [
@@ -49,7 +50,6 @@ const appRoutes: Routes = [
   {path: 'my-patients', component: MyPatientsComponent},
   {path: 'doctor-page', component: DoctorPageComponent},
   {path: 'patient-mainpage', component: PatientMainpageComponent},
-  {path: 'patient-mainpage/:username', component: PatientMainpageComponent},
   {path: 'view-doctors', component: ViewDoctorsComponent},
   {path: 'patient-registration-request', component: PatientRegistrationRequestComponent},
   {path: 'patient-unlisting-request', component: PatientUnlistingRequestComponent},
@@ -112,7 +112,7 @@ const appRoutes: Routes = [
     MatSliderModule,
     ChartsModule
   ],
-  providers: [DoctorService, PatientService],
+  providers: [AuthService,DoctorService,PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

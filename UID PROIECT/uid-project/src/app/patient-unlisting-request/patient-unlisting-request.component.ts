@@ -28,4 +28,14 @@ export class PatientUnlistingRequestComponent implements OnInit {
   onSendDelisting() {
 
   }
+
 }
+
+
+
+
+
+
+
+
+

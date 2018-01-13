@@ -1,8 +1,9 @@
 import {Doctor} from '../model/Doctor';
 import {Patient} from '../model/Patient';
 import {Appointment} from '../model/Appointment';
+import {Injectable} from "@angular/core";
 
-
+@Injectable()
 export class DoctorService {
 
   private _doctors: Array<Doctor>;
