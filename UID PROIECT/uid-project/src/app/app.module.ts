@@ -40,6 +40,7 @@ import { ChartsModule } from 'ng2-charts';
 import {AuthService} from "./service/auth.service";
 import {DoctorService} from "./service/DoctorService";
 import {PatientService} from "./service/PatientService";
+import {MatButtonModule} from '@angular/material/button';
 
 
 const appRoutes: Routes = [
@@ -110,7 +111,8 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatSnackBarModule,
     MatSliderModule,
-    ChartsModule
+    ChartsModule,
+    MatButtonModule
   ],
   providers: [AuthService,DoctorService,PatientService],
   bootstrap: [AppComponent]

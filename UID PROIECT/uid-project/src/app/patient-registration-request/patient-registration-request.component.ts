@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatTableDataSource} from "@angular/material";
+import {Component, OnInit} from '@angular/core';
+import {MatDialog, MatTableDataSource} from "@angular/material";
 import {DoctorService} from "../service/DoctorService";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {DialogOverviewExampleDialogComponent} from "../dialog-overview-example-dialog/dialog-overview-example-dialog.component";
 
 
 export interface Element {
@@ -36,11 +37,12 @@ export class PatientRegistrationRequestComponent implements OnInit {
   ];
   displayedColumns = this.columns.map(x => x.columnDef);
   notNull = false;
+  sympt : string;
   usernameFormGroup: FormGroup;
   doctorSpecFormGroup: FormGroup;
   doctorEmailFormGroup: FormGroup;
 
-  constructor(private doctorService: DoctorService, private formBuilder: FormBuilder) {
+  constructor(private doctorService: DoctorService, private formBuilder: FormBuilder,private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -51,10 +53,9 @@ export class PatientRegistrationRequestComponent implements OnInit {
       doctorSpecFormCtrl: ['', Validators.required]
     });
     this.doctorEmailFormGroup = this.formBuilder.group({
-      doctorEmailFormCtrl: ['You must input a valid email', Validators.required]
+      doctorEmailFormCtrl: ['', Validators.required]
     });
   }
-
 
 
   applyFilter(filterValue: string) {
@@ -85,5 +86,33 @@ export class PatientRegistrationRequestComponent implements OnInit {
       this.notNull = true;
     }
   }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
+      width: '250px',
+      data: {title: 'Registration request', description: 'Are you sure you want to confirm the registration?'},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      if (result === true) {
+        console.log('Patient chose to send appointment');
+      } else {
+        console.log('Patient still modifying stuff');
+      }
+    });
+  }
+
+
+  onRegistrationRequest(): void {
+      console.log('Registration requested');
+      console.log('Username is', this.usernameFormGroup.controls['usernameFormCtrl'].value);
+      console.log('Doctor specialisation is', this.doctorSpecFormGroup.controls['doctorSpecFormCtrl'].value);
+      console.log('Doctor Email is', this.doctorEmailFormGroup.controls['doctorEmailFormCtrl'].value);
+      console.log('Symptoms', this.sympt);
+      this.openDialog();
+  }
+
+
 }
 

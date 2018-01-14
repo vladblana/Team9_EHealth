@@ -7,7 +7,7 @@
         <input matInput placeholder="First name, Last name" formControlName="usernameFormCtrl" required>
       </mat-form-field>
       <div>
-        <button mat-button class="btn btn-danger" matStepperNext>Next</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -43,8 +43,8 @@
         </div>
       </div>
       <div>
-        <button mat-button class="btn btn-danger" matStepperPrevious>Previous</button>
-        <button mat-button class="btn btn-danger" matStepperNext>Next</button>
+        <button mat-button color="primary" matStepperPrevious>Previous</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -57,8 +57,8 @@
         <mat-hint>Copy the doctor email from the previous table</mat-hint>
       </mat-form-field>
       <div>
-        <button mat-button class="btn btn-danger" matStepperPrevious>Previous</button>
-        <button mat-button class="btn btn-danger" matStepperNext>Next</button>
+        <button mat-button color="primary" matStepperPrevious>Previous</button>
+        <button mat-button color="primary" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -66,20 +66,20 @@
 
   <mat-step label="Symptoms">
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Input any relevant symptoms"></textarea>
+      <textarea matInput placeholder="Input any relevant symptoms" [(ngModel)]="sympt"></textarea>
       <mat-hint align="center">Click the end-triangle to adjust the size</mat-hint>
     </mat-form-field>
     <div>
-      <button mat-button class="btn btn-danger" matStepperPrevious>Previous</button>
-      <button mat-button class="btn btn-danger" matStepperNext>Next</button>
+      <button mat-button color="primary" matStepperPrevious>Previous</button>
+      <button mat-button color="primary" matStepperNext>Next</button>
     </div>
   </mat-step>
 
 
   <mat-step label="Confirm Request">
     <div>
-      <button mat-button class="btn btn-danger" matStepperPrevious>Previous</button>
-      <button mat-button class="btn btn-alert">Send Registration</button>
+      <button mat-button color="primary" matStepperPrevious>Previous</button>
+      <button mat-button color="primary" (click)="onRegistrationRequest()">Send Registration</button>
     </div>
   </mat-step>
 
