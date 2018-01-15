@@ -112,7 +112,5 @@ export class PatientRegistrationRequestComponent implements OnInit {
       console.log('Symptoms', this.sympt);
       this.openDialog();
   }
-
-
 }
 

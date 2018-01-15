@@ -1,0 +1,73 @@
+<app-patient-navbar></app-patient-navbar>
+<mat-tab-group>
+  <mat-tab label="My Disease Monitor">
+    <div class="flex-container">
+      <mat-form-field>
+        <mat-select [(ngModel)]="treatmentForDisease">
+          <mat-option *ngFor="let disease of diseases" [value]="disease" (click)="update(treatmentForDisease)">
+            {{disease}}
+          </mat-option>
+        </mat-select>
+        <mat-hint align="center">Select one of your past/current diseases to compare with others</mat-hint>
+      </mat-form-field>
+
+      <div class="chart-class">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="My Doctor Remarks">
+    <div class="flex-container">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Typhoid Fever
+            </mat-panel-title>
+            <mat-panel-description>
+              Click to see the description
+              <mat-icon>account_circle</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>The patient responds well and in the end the result is better in comparison with other patients</p>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Infectious Mononucleosis
+            </mat-panel-title>
+            <mat-panel-description>
+              Click to see the description
+              <mat-icon>account_circle</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>The patient did not respond so well as compared to other patients</p>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Sarcoidosis
+            </mat-panel-title>
+            <mat-panel-description>
+              Click to see the description
+              <mat-icon>account_circle</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <p>Initially the patient did not respond well, but the final result is comparable to other patient's</p>
+        </mat-expansion-panel>
+
+
+      </mat-accordion>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -29,18 +29,21 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
-import {DoctorReviewComponent } from './doctor-review/doctor-review.component';
+import {DoctorReviewComponent} from './doctor-review/doctor-review.component';
 import {MatSliderModule} from '@angular/material/slider';
 import {PatientUnlistingRequestComponent} from './patient-unlisting-request/patient-unlisting-request.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { DoctorMedicalHistoryComponent } from './doctor-medical-history/doctor-medical-history.component';
-import { DoctorMedicalRecordComponent } from './doctor-medical-record/doctor-medical-record.component';
+import {DoctorMedicalHistoryComponent} from './doctor-medical-history/doctor-medical-history.component';
+import {DoctorMedicalRecordComponent} from './doctor-medical-record/doctor-medical-record.component';
 import {DialogOverviewExampleDialogComponent} from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
-import { ChartsModule } from 'ng2-charts';
+import {ChartsModule} from 'ng2-charts';
 import {AuthService} from "./service/auth.service";
 import {DoctorService} from "./service/DoctorService";
 import {PatientService} from "./service/PatientService";
 import {MatButtonModule} from '@angular/material/button';
+import {PatientProgressComponent} from './patient-progress/patient-progress.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 const appRoutes: Routes = [
@@ -58,6 +61,7 @@ const appRoutes: Routes = [
   {path: 'create-appointment', component: CreateAppointmentComponent},
   {path: 'delete-account', component: DeleteAccountComponent},
   {path: 'doctor-review', component: DoctorReviewComponent},
+  {path: 'patient-progress', component: PatientProgressComponent},
   {path: 'doctor-medical-history/:username', component: DoctorMedicalHistoryComponent},
   {path: 'doctor-medical-record/:username', component: DoctorMedicalRecordComponent},
   {path: '**', redirectTo: '/not-found'}
@@ -84,6 +88,7 @@ const appRoutes: Routes = [
     DoctorReviewComponent,
     PatientUnlistingRequestComponent,
     DialogOverviewExampleDialogComponent,
+    PatientProgressComponent,
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
   imports: [
@@ -112,9 +117,11 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     MatSliderModule,
     ChartsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTabsModule,
+    MatExpansionModule
   ],
-  providers: [AuthService,DoctorService,PatientService],
+  providers: [AuthService, DoctorService, PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
