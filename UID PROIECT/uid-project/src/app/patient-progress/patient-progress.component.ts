@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../service/auth.service";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-patient-progress',
@@ -8,7 +8,13 @@ import {AuthService} from "../service/auth.service";
 })
 export class PatientProgressComponent implements OnInit {
 
+
+  constructor(public snackBar: MatSnackBar) {
+    this.openSnackBar();
+  }
+
   ngOnInit(): void {
+
   }
 
   private diseases = ['Infectious mononucleosis', 'Typhoid fever', 'Sarcoidosis'];
@@ -26,9 +32,7 @@ export class PatientProgressComponent implements OnInit {
     {data: [10, 20, 30, 40, 55, 75, 100], label: 'Average Patients'}
   ];
   private treatmentForDisease: string;
-  panelOpenState: Boolean;
 
-  // events
   public chartClicked(e: any): void {
     console.log(e);
   }
@@ -59,4 +63,9 @@ export class PatientProgressComponent implements OnInit {
     this.barChartData = clone;
   }
 
+  openSnackBar() {
+    this.snackBar.open("Switch between the tabs(upper left) as you want", "Got it!", {
+      duration: 15000,
+    });
+  }
 }
