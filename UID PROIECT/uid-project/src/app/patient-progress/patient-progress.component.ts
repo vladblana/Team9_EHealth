@@ -68,4 +68,12 @@ export class PatientProgressComponent implements OnInit {
       duration: 15000,
     });
   }
+
+  changeChartType(): void {
+    if (this.barChartType === 'bar') {
+      this.barChartType = 'line';
+    } else {
+      this.barChartType = 'bar';
+    }
+  }
 }
