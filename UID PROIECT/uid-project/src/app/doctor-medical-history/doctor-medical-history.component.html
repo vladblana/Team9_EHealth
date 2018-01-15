@@ -1,1 +1,38 @@
 <app-doctor-page-navbar></app-doctor-page-navbar>
+<mat-accordion>
+  <h4>Change me!!!!!!!!!!!!</h4>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Laboratory results
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput #inp1 (keyup.enter)="onLabResultChange('Blood',inp1.value)" placeholder="{{patient.medicalHistory.labResults.get('Blood')}}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput #inp2 (keyup.enter)="onLabResultChange('Throat',inp2.value)" placeholder="{{patient.medicalHistory.labResults.get('Throat')}}">
+    </mat-form-field>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Medications
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-form-field *ngFor="let med of patient.medicalHistory.medications; let i=index">
+      <input matInput #inp (keyup.enter)="onMedicationsChange(i,inp.value)" placeholder="{{med}}">
+    </mat-form-field>
+
+  </mat-expansion-panel>
+<br>
+<div class="button-row">
+  <button mat-raised-button color="primary" (click)="onSaveChanges()">Save</button>
+  <button mat-raised-button color="primary" (click)="onCancelChanges()">Cancel</button>
+</div>

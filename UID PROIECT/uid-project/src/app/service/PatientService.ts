@@ -36,25 +36,25 @@ export class PatientService {
     let habits = Array<string>(0);
     let familyHistory = new Map<string, string>();
 
-    surgicalHistory.push('vasectomy');
-    surgicalHistory.push('coronary artery bypass');
-    medicalAllergies.push('lactose intolerant');
-    medicalAllergies.push('dust allergy');
-    medicalAllergies.push('latex allergy');
-    habits.push('smoking');
-    habits.push('drinking');
-    habits.push('heroine');
+    surgicalHistory.push('Vasectomy');
+    surgicalHistory.push('Coronary artery bypass');
+    medicalAllergies.push('Lactose intolerant');
+    medicalAllergies.push('Dust allergy');
+    medicalAllergies.push('Latex allergy');
+    habits.push('Smoking');
+    habits.push('Drinking');
+    habits.push('Heroine');
     familyHistory.set('Mother', 'Alzheimer\'s disease');
-    familyHistory.set('Grandmother', 'arrhythmia');
+    familyHistory.set('Grandmother', 'Arrhythmia');
 
     let medications = Array<string>(0);
     let labResults = new Map<string, string>();
 
-    medications.push('xanax');
-    medications.push('viagra');
-    medications.push('aspirin');
-    labResults.set('blood', 'healthy');
-    labResults.set('throat', 'streptococcus');
+    medications.push('Xanax');
+    medications.push('Viagra');
+    medications.push('Aspirin');
+    labResults.set('Blood', 'Healthy');
+    labResults.set('Throat', 'Streptococcus');
 
     const testMedicalRecord = new MedicalRecord(surgicalHistory, medicalAllergies, familyHistory, habits);
     const testMedicalHistory = new MedicalHistory(medications, labResults);
@@ -78,6 +78,14 @@ export class PatientService {
 
   addPatients(patient: Patient) {
     this.patients.push(patient);
+  }
+
+  updatePatient(patient: Patient) {
+    for (let p of this._patients){
+      if (p.username === patient.username) {
+        p = patient;
+      }
+    }
   }
 
   getPatientByUsername(username: string): any {

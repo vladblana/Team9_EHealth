@@ -1,2 +1,65 @@
 <app-doctor-page-navbar></app-doctor-page-navbar>
+<mat-accordion>
+  <h4>This information is very sensitive, only change if absolutely necessary</h4>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Family history
+      </mat-panel-title>
 
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput #inp1 (keyup.enter)="onFamilyHistoryChange('Mother',inp1.value)" placeholder="{{patient.medicalRecord.familyHistory.get('Mother')}}">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput #inp2 (keyup.enter)="onFamilyHistoryChange('Grandmother',inp2.value)" placeholder="{{patient.medicalRecord.familyHistory.get('Grandmother')}}">
+    </mat-form-field>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Surgical history
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-form-field *ngFor="let surgery of patient.medicalRecord.surgicalHistory; let i=index">
+      <input matInput #inp (keyup.enter)="onSurgicalHistoryChange(i,inp.value)" placeholder="{{surgery}}">
+    </mat-form-field>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Medical allergies
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+      <mat-form-field *ngFor="let allergy of patient.medicalRecord.medicalAllergies; let i=index">
+        <input matInput #inp (keyup.enter)="onAllergiesChange(i,inp.value)" placeholder="{{allergy}}">
+      </mat-form-field>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Habits
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-form-field *ngFor="let habit of patient.medicalRecord.habits; let i=index">
+      <input matInput #inp (keyup.enter)="onHabitsChange(i,inp.value)" placeholder="{{habit}}">
+    </mat-form-field>
+
+  </mat-expansion-panel>
+</mat-accordion>
+<br>
+<div class="button-row">
+  <button mat-raised-button color="primary" (click)="onSaveChanges()">Save</button>
+  <button mat-raised-button color="primary" (click)="onCancelChanges()">Cancel</button>
+</div>

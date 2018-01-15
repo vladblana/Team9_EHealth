@@ -37,9 +37,9 @@ import {DoctorMedicalHistoryComponent} from './doctor-medical-history/doctor-med
 import {DoctorMedicalRecordComponent} from './doctor-medical-record/doctor-medical-record.component';
 import {DialogOverviewExampleDialogComponent} from './dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 import {ChartsModule} from 'ng2-charts';
-import {AuthService} from "./service/auth.service";
-import {DoctorService} from "./service/DoctorService";
-import {PatientService} from "./service/PatientService";
+import {AuthService} from './service/auth.service';
+import {DoctorService} from './service/DoctorService';
+import {PatientService} from './service/PatientService';
 import {MatButtonModule} from '@angular/material/button';
 import {PatientProgressComponent} from './patient-progress/patient-progress.component';
 import {MatTabsModule} from '@angular/material/tabs';

@@ -6,6 +6,13 @@ import {Appointment} from './Appointment';
 
 // A patient has a single doctor
 export class Patient {
+  get appointments(): Array<Appointment> {
+    return this._appointments;
+  }
+
+  set appointments(value: Array<Appointment>) {
+    this._appointments = value;
+  }
   private _username: string;
   private _password: string;
   private _firstName: string;
