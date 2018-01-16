@@ -1,6 +1,6 @@
 import {Component, Injectable, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {AuthService} from "../service/auth.service";
+import {AuthService} from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +28,12 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     this.authService.loggedInUsername = this.username;
-    this.router.navigate(['/patient-mainpage/'], {relativeTo: this.route});
+
+    if (this.username === 'patient')
+      this.router.navigate(['/patient-mainpage'], {relativeTo: this.route});
+    else if (this.username === 'doctor') {
+      this.router.navigate(['/doctor-page'], {relativeTo: this.route});
+    }
   }
 
   onRegister() {

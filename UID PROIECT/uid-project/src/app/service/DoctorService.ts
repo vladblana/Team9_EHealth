@@ -1,7 +1,7 @@
 import {Doctor} from '../model/Doctor';
 import {Patient} from '../model/Patient';
 import {Appointment} from '../model/Appointment';
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 
 @Injectable()
 export class DoctorService {
@@ -40,11 +40,22 @@ export class DoctorService {
     const doctor2 = new Doctor('blana', 'blana', 'Vlad', 'Blana', 'blanavlad@gmail.com', '1234567890', 'Dermatology', patientArray);
     const doctor3 = new Doctor('razvan', 'razvan', 'Razvan', 'Florea', 'razvanflorea@gmail.com', '1234567890', 'Dermatology', patientArray);
     const doctor4 = new Doctor('andreea', 'andreea', 'Andreea', 'Damsa', 'andreeadamsa@gmail.com', '1234567890', 'Pediatrics', patientArray);
+    const doctor5 = new Doctor('stefania', 'stefania', 'Stefania', 'Sucitu', 'stefaniasucitu@gmail.com', '1234567890', 'Nephrology', patientArray);
+    const doctor6 = new Doctor('vlad', 'vlad', 'Vlad', 'Pop', 'popvlad@gmail.com', '1234567890', 'Cardiology', patientArray);
+    const doctor7 = new Doctor('robert', 'robert', 'Robert', 'Groza', 'robertgroza@gmail.com', '1234567890', 'Gynecology', patientArray);
+    const doctor8 = new Doctor('tudor', 'tudor', 'Tudor', 'Bologa', 'tudorbologa@gmail.com', '1234567890', 'Orthopedy', patientArray);
+    const doctor9 = new Doctor('alexandra', 'alexandra', 'Alexandra', 'Florescu', 'alexandraflorescu@gmail.com', '1234567890', 'Pneumology', patientArray);
 
     let doctorArray = Array<Doctor>(0);
     doctorArray.push(doctor1);
     doctorArray.push(doctor2);
     doctorArray.push(doctor3);
+    doctorArray.push(doctor4);
+    doctorArray.push(doctor5);
+    doctorArray.push(doctor6);
+    doctorArray.push(doctor7);
+    doctorArray.push(doctor8);
+    doctorArray.push(doctor9);
 
     return doctorArray;
   }

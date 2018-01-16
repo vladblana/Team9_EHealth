@@ -46,6 +46,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PatientMedicalRecordComponent } from './patient-medical-record/patient-medical-record.component';
+import { DoctorDeleteAccountComponent } from './doctor-delete-account/doctor-delete-account.component';
 
 
 const appRoutes: Routes = [
@@ -61,6 +62,7 @@ const appRoutes: Routes = [
   {path: 'patient-unlisting-request', component: PatientUnlistingRequestComponent},
   {path: 'patient-medical-record', component: PatientMedicalRecordComponent},
   {path: 'patient-unlisting-request/:username', component: PatientUnlistingRequestComponent},
+  {path: 'doctor-delete-account', component: DoctorDeleteAccountComponent},
   {path: 'create-appointment', component: CreateAppointmentComponent},
   {path: 'delete-account', component: DeleteAccountComponent},
   {path: 'doctor-review', component: DoctorReviewComponent},
@@ -93,6 +95,7 @@ const appRoutes: Routes = [
     DialogOverviewExampleDialogComponent,
     PatientProgressComponent,
     PatientMedicalRecordComponent,
+    DoctorDeleteAccountComponent,
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
   imports: [

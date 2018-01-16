@@ -1,23 +1,30 @@
 <app-patient-navbar></app-patient-navbar>
 
 
-<h1>
-  Delete Account!
-</h1>
+<!--<h1>-->
+  <!--Delete Account!-->
+<!--</h1>-->
 
-
-<p> Are you sure you want to delete your account?
-  If so, we would like to know your reasons for deleting the account and possible suggestions for improving the platform! </p>
-
-
+<div class="flex-container">
 
 <mat-form-field class="reasons-to-delete-form">
   <textarea matInput placeholder=" Why would you like to delete your account? "></textarea>
   <mat-hint align="center">Click the end-triangle to adjust the size</mat-hint>
 </mat-form-field>
 
+<mat-form-field class="reasons-to-delete-form">
+  <textarea matInput placeholder=" Please tell us how useful you found this platform "></textarea>
+  <mat-hint align="center">Click the end-triangle to adjust the size</mat-hint>
+</mat-form-field>
+
+<mat-form-field class="reasons-to-delete-form">
+  <textarea matInput placeholder=" Possible improvements "></textarea>
+  <mat-hint align="center">Click the end-triangle to adjust the size</mat-hint>
+</mat-form-field>
+
+
 <div>
-  <button mat-button (click)="onDelete()" class="btn btn-danger"> Delete Account</button>
+  <button mat-button (click)="onDelete()" class="btn-danger"> Delete Account</button>
 </div>
 
-
+</div>
