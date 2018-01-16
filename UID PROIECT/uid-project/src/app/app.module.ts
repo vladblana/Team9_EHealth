@@ -44,6 +44,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {PatientProgressComponent} from './patient-progress/patient-progress.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 const appRoutes: Routes = [
@@ -119,7 +120,8 @@ const appRoutes: Routes = [
     ChartsModule,
     MatButtonModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgbModule
   ],
   providers: [AuthService, DoctorService, PatientService],
   bootstrap: [AppComponent]
