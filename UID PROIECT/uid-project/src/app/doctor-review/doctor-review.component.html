@@ -20,8 +20,14 @@
     </mat-step>
 
     <mat-step  label="Review">
-      <br>
-      <mat-slider thumbLabel tickInterval="1" min="0" max="5" step="1" value="5" ></mat-slider>
+
+      <ngb-rating [(rate)]="currentRate">
+        <ng-template let-fill="fill" let-index="index">
+          <span class="star" [class.filled]="fill === 100" [class.bad]="index < 3">&#9733;</span>
+        </ng-template>
+      </ngb-rating>
+      <hr>
+      <pre>Rate: <b>{{currentRate}}</b></pre>
 
       <div>
         <button mat-button class="btn btn-info" matStepperPrevious>Back</button>

@@ -45,6 +45,9 @@ import {PatientProgressComponent} from './patient-progress/patient-progress.comp
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { DoctorAllAppointmentsComponent } from './doctor-all-appointments/doctor-all-appointments.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { PatientMedicalRecordComponent } from './patient-medical-record/patient-medical-record.component';
+import { DoctorDeleteAccountComponent } from './doctor-delete-account/doctor-delete-account.component';
 
 
 const appRoutes: Routes = [
@@ -58,7 +61,9 @@ const appRoutes: Routes = [
   {path: 'view-doctors', component: ViewDoctorsComponent},
   {path: 'patient-registration-request', component: PatientRegistrationRequestComponent},
   {path: 'patient-unlisting-request', component: PatientUnlistingRequestComponent},
+  {path: 'patient-medical-record', component: PatientMedicalRecordComponent},
   {path: 'patient-unlisting-request/:username', component: PatientUnlistingRequestComponent},
+  {path: 'doctor-delete-account', component: DoctorDeleteAccountComponent},
   {path: 'create-appointment', component: CreateAppointmentComponent},
   {path: 'delete-account', component: DeleteAccountComponent},
   {path: 'doctor-review', component: DoctorReviewComponent},
@@ -92,6 +97,8 @@ const appRoutes: Routes = [
     DialogOverviewExampleDialogComponent,
     PatientProgressComponent,
     DoctorAllAppointmentsComponent,
+    PatientMedicalRecordComponent,
+    DoctorDeleteAccountComponent,
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
   imports: [
@@ -122,7 +129,8 @@ const appRoutes: Routes = [
     ChartsModule,
     MatButtonModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    NgbModule
   ],
   providers: [AuthService, DoctorService, PatientService],
   bootstrap: [AppComponent]

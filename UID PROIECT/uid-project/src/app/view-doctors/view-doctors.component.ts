@@ -28,7 +28,6 @@ export class ViewDoctorsComponent implements OnInit, OnDestroy {
   doctorSp = ['None', 'Nephrology', 'Cardiology', 'Ophthalmology', 'Pedriatics', 'Dermatology', 'Orthopedy', 'Gynecology', 'Pneumology'];
   doctor_spec = 'None';
   dataSource = new MatTableDataSource<Element>();
-  //displayedColumns = ['position', 'firstName', 'lastName', 'specialisation'];
   columns = [
     {columnDef: 'Position', header: 'Position', cell: (row: Element) => `${row.position}`},
     {columnDef: 'First Name', header: ' First Name', cell: (row: Element) => `${row.firstName}`},
@@ -51,7 +50,7 @@ export class ViewDoctorsComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    ELEMENT_DATA.length = 0;
+    ELEMENT_DATA.length = 9;
   }
 
   applyFilter(filterValue: string) {
