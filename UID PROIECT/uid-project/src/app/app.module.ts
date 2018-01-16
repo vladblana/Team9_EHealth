@@ -44,6 +44,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {PatientProgressComponent} from './patient-progress/patient-progress.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { DoctorAllAppointmentsComponent } from './doctor-all-appointments/doctor-all-appointments.component';
 
 
 const appRoutes: Routes = [
@@ -64,6 +65,7 @@ const appRoutes: Routes = [
   {path: 'patient-progress', component: PatientProgressComponent},
   {path: 'doctor-medical-history/:username', component: DoctorMedicalHistoryComponent},
   {path: 'doctor-medical-record/:username', component: DoctorMedicalRecordComponent},
+  {path: 'doctor-appointments', component: DoctorAllAppointmentsComponent},
   {path: '**', redirectTo: '/not-found'}
 ];
 
@@ -89,6 +91,7 @@ const appRoutes: Routes = [
     PatientUnlistingRequestComponent,
     DialogOverviewExampleDialogComponent,
     PatientProgressComponent,
+    DoctorAllAppointmentsComponent,
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
   imports: [

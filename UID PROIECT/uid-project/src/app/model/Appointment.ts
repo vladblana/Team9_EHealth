@@ -1,5 +1,5 @@
 
-export class Appointment{
+export class Appointment {
 
   private _date: string;
   private _hours: string;

@@ -2,6 +2,7 @@ import {Doctor} from '../model/Doctor';
 import {Patient} from '../model/Patient';
 import {Appointment} from '../model/Appointment';
 import {Injectable} from "@angular/core";
+import {PatientService} from './PatientService';
 
 @Injectable()
 export class DoctorService {
@@ -9,7 +10,7 @@ export class DoctorService {
   private _doctors: Array<Doctor>;
 
 
-  constructor() {
+  constructor(private patientService: PatientService) {
   }
 
 
@@ -26,14 +27,14 @@ export class DoctorService {
 
     // apointments
     const appointment1 = new Appointment('2018-12-10', '8', '00', 'Blana Vlad', 'urgent', 'symptoms');
-    let appointmentArray = Array<Appointment>(1);
+    let appointmentArray = Array<Appointment>(0);
     appointmentArray.push(appointment1);
 
     // patients
     const patient1 = new Patient('calinPat', 'calin', 'CalinPat', 'Timbus', 'calin@calin.com', '1234567890', null, null, appointmentArray);
 
-    let patientArray = Array<Patient>(0);
-    patientArray.push(patient1);
+
+    let patientArray = this.patientService.initializePatients();
 
     // doctors
     const doctor1 = new Doctor('calin', 'calin', 'Calin', 'Timbus', 'calintimbus@gmail.com', '1234567890', 'Pedriatics', patientArray);
@@ -46,11 +47,21 @@ export class DoctorService {
     doctorArray.push(doctor2);
     doctorArray.push(doctor3);
 
+    this._doctors = doctorArray;
     return doctorArray;
   }
 
-
+  getDoctorByUsername(username: string): any {
+    for (let doctor of this._doctors) {
+      if (doctor.username === username) {
+        return doctor;
+      }
+    }
+  }
   addDoctor(doctor: Doctor) {
     this.doctors.push(doctor);
   }
 }
+
+
+
