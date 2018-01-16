@@ -5,8 +5,10 @@
   Delete Account!
 </h1>
 
-<p> We are sorry you ....
-  However, we would like to know your reasons for deleting the account and possible suggestions for improving the platform! </p>
+
+<p> Are you sure you want to delete your account?
+  If so, we would like to know your reasons for deleting the account and possible suggestions for improving the platform! </p>
+
 
 
 <mat-form-field class="reasons-to-delete-form">
@@ -15,7 +17,7 @@
 </mat-form-field>
 
 <div>
-  <button mat-button class="btn btn-danger"> Delete Account</button>
+  <button mat-button (click)="onDelete()" class="btn btn-danger"> Delete Account</button>
 </div>
 
 

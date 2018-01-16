@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
+import {MatDialog} from '@angular/material';
+import {DialogOverviewExampleDialogComponent} from '../dialog-overview-example-dialog/dialog-overview-example-dialog.component';
 
 
 @Component({
@@ -64,14 +66,31 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
   }
 
   ngOnInit() {
   }
 
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleDialogComponent, {
+      width: '250px',
+      data: {title: 'Register Confirmation', description: ''},
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      if (result === true) {
+        console.log('Patient chose to confirm action');
+      } else {
+        console.log('Patient still modifying stuff');
+      }
+    });
+  }
+
   //To be implemented =>>>
   onRegisterSubmit() {
-
+    console.log('Submit Feedback');
+    this.openDialog();
   }
 }

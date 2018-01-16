@@ -45,6 +45,7 @@ import {PatientProgressComponent} from './patient-progress/patient-progress.comp
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { PatientMedicalRecordComponent } from './patient-medical-record/patient-medical-record.component';
 
 
 const appRoutes: Routes = [
@@ -58,6 +59,7 @@ const appRoutes: Routes = [
   {path: 'view-doctors', component: ViewDoctorsComponent},
   {path: 'patient-registration-request', component: PatientRegistrationRequestComponent},
   {path: 'patient-unlisting-request', component: PatientUnlistingRequestComponent},
+  {path: 'patient-medical-record', component: PatientMedicalRecordComponent},
   {path: 'patient-unlisting-request/:username', component: PatientUnlistingRequestComponent},
   {path: 'create-appointment', component: CreateAppointmentComponent},
   {path: 'delete-account', component: DeleteAccountComponent},
@@ -90,6 +92,7 @@ const appRoutes: Routes = [
     PatientUnlistingRequestComponent,
     DialogOverviewExampleDialogComponent,
     PatientProgressComponent,
+    PatientMedicalRecordComponent,
   ],
   entryComponents: [DialogOverviewExampleDialogComponent],
   imports: [
