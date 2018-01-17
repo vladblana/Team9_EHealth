@@ -27,9 +27,18 @@ export class PatientService {
   initializePatients(): Array<Patient> {
 
     // apointments
-    const appointment1 = new Appointment('2018-12-10', '8', '00', 'Blana Vlad', 'urgent', 'symptoms');
+    const appointment1 = new Appointment('2018-12-10', '8', '00', 'Blana Vlad', 'urgent', 'mild headache');
+    const appointment2 = new Appointment('2018-01-10', '12', '30', 'Blana Vlad', 'routine', 'internal bleeding');
+    const appointment3 = new Appointment('2018-01-10', '9', '30', 'Blana Vlad', 'urgent', 'tummy ache');
     let appointmentArray = Array<Appointment>(0);
     appointmentArray.push(appointment1);
+
+    let appointmentArray2 = Array<Appointment>(0);
+    appointmentArray2.push(appointment2);
+
+    let appointmentArray3 = Array<Appointment>(0);
+    appointmentArray3.push(appointment3);
+
 
     let surgicalHistory = Array<string>(0);
     let medicalAllergies = Array<string>(0);
@@ -60,8 +69,8 @@ export class PatientService {
     const testMedicalHistory = new MedicalHistory(medications, labResults);
 
     const patient1 = new Patient('anapop', 'anapop', 'Ana', 'Pop', 'ana.pop@gmail.com', '1234567890', testMedicalRecord, testMedicalHistory, appointmentArray);
-    const patient2 = new Patient('andreipopescu', 'andreipopescu', 'Andrei', 'Popescu', 'andrei.popescu@gmail.com', '0987654321', testMedicalRecord, testMedicalHistory, appointmentArray);
-    const patient3 = new Patient('patriciadeac', 'patriciadeac', 'Patricia', 'Deac', 'patricia.deac@gmail.com', '1234567890', testMedicalRecord, testMedicalHistory, appointmentArray);
+    const patient2 = new Patient('andreipopescu', 'andreipopescu', 'Andrei', 'Popescu', 'andrei.popescu@gmail.com', '0987654321', testMedicalRecord, testMedicalHistory, appointmentArray2);
+    const patient3 = new Patient('patriciadeac', 'patriciadeac', 'Patricia', 'Deac', 'patricia.deac@gmail.com', '1234567890', testMedicalRecord, testMedicalHistory, appointmentArray3);
     const patient4 = new Patient('alexandrugroza', 'alexandrugroza', 'Alexandru', 'Groza', 'alexandrugroza@gmail.com', '0987654321', testMedicalRecord, testMedicalHistory, appointmentArray);
 
 

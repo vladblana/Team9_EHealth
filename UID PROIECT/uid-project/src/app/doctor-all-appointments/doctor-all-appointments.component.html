@@ -19,18 +19,21 @@
     </div>
     <mat-table #table [dataSource]="dataSource">
 
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="Date">
         <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
       </ng-container>
 
-      <!-- Name Column -->
       <ng-container matColumnDef="Time">
         <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.hours}}:{{element.minutes}} </mat-cell>
       </ng-container>
 
-      <!-- Weight Column -->
       <ng-container matColumnDef="Urgency">
         <mat-header-cell *matHeaderCellDef> Urgency </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.urgency}} </mat-cell>
@@ -58,51 +61,49 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
 
+    <div class="example-container mat-elevation-z8">
+      <div class="example-header">
+        <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
+    </div>
+    <mat-table #table [dataSource]="dataSource2">
+
+      <ng-container matColumnDef="Name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Date">
+        <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Time">
+        <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.hours}}:{{element.minutes}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Urgency">
+        <mat-header-cell *matHeaderCellDef> Urgency </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.urgency}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Symptoms">
+        <mat-header-cell *matHeaderCellDef> Symptoms </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symptoms}} </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+
+    </mat-table>
 
 
   </mat-expansion-panel>
 </mat-accordion>
 
-<div class="example-container mat-elevation-z8">
-  <div class="example-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
-  </div>
-  <mat-table #table [dataSource]="dataSource">
-
-    <ng-container matColumnDef="Position">
-      <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="Name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.firstName}} {{element.lastName}} </mat-cell>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="MedicalRecord">
-      <mat-header-cell *matHeaderCellDef> Medical Record </mat-header-cell>
-      <mat-cell *matCellDef="let element" (click) = "LinkToMedicalRecord(element.username)"> View </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="MedicalHistory">
-      <mat-header-cell *matHeaderCellDef> Medical History </mat-header-cell>
-      <mat-cell *matCellDef="let element" (click) = "LinkToMedicalHistory(element.username)"> View </mat-cell>
-    </ng-container>
-
-    <ng-container matColumnDef="Appointments">
-      <mat-header-cell *matHeaderCellDef> Appointments </mat-header-cell>
-      <mat-cell *matCellDef="let element" (click) = "LinkToAppointments(element.username)"> View </mat-cell>
-    </ng-container>
-
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-
-
-
-  </mat-table>
-</div>

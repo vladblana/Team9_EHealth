@@ -27,7 +27,7 @@ export class MyPatientsComponent implements OnInit, OnDestroy {
     {columnDef: 'Name', header: 'Name'},
     {columnDef: 'MedicalRecord', header: 'Medical Record'},
     {columnDef: 'MedicalHistory', header: 'Medical History'},
-    {columnDef: 'Appointments', header: 'Appointments'},
+   //  {columnDef: 'Appointments', header: 'Appointments'},
   ];
   displayedColumns = this.columns.map(x => x.columnDef);
 
